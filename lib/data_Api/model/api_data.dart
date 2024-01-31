@@ -1,49 +1,49 @@
 // To parse this JSON data, do
 //
-//     final prayerTimes = prayerTimesFromMap(jsonString);
+//     final prayerTime = prayerTimeFromMap(jsonString);
 
 import 'dart:convert';
 
-PrayerTimes prayerTimesFromMap(String str) => PrayerTimes.fromMap(json.decode(str));
+PrayerTime prayerTimeFromMap(String str) => PrayerTime.fromMap(json.decode(str));
 
-String prayerTimesToMap(PrayerTimes data) => json.encode(data.toMap());
+String prayerTimeToMap(PrayerTime data) => json.encode(data.toMap());
 
-class PrayerTimes {
+class PrayerTime {
   int code;
   String status;
-  List<Datum> data;
+  Data data;
 
-  PrayerTimes({
+  PrayerTime({
     required this.code,
     required this.status,
     required this.data,
   });
 
-  factory PrayerTimes.fromMap(Map<String, dynamic> json) => PrayerTimes(
+  factory PrayerTime.fromMap(Map<String, dynamic> json) => PrayerTime(
     code: json["code"],
     status: json["status"],
-    data: List<Datum>.from(json["data"].map((x) => Datum.fromMap(x))),
+    data: Data.fromMap(json["data"]),
   );
 
   Map<String, dynamic> toMap() => {
     "code": code,
     "status": status,
-    "data": List<dynamic>.from(data.map((x) => x.toMap())),
+    "data": data.toMap(),
   };
 }
 
-class Datum {
+class Data {
   Timings timings;
   Date date;
   Meta meta;
 
-  Datum({
+  Data({
     required this.timings,
     required this.date,
     required this.meta,
   });
 
-  factory Datum.fromMap(Map<String, dynamic> json) => Datum(
+  factory Data.fromMap(Map<String, dynamic> json) => Data(
     timings: Timings.fromMap(json["timings"]),
     date: Date.fromMap(json["date"]),
     meta: Meta.fromMap(json["meta"]),
@@ -59,28 +59,28 @@ class Datum {
 class Date {
   String readable;
   String timestamp;
-  Gregorian gregorian;
   Hijri hijri;
+  Gregorian gregorian;
 
   Date({
     required this.readable,
     required this.timestamp,
-    required this.gregorian,
     required this.hijri,
+    required this.gregorian,
   });
 
   factory Date.fromMap(Map<String, dynamic> json) => Date(
     readable: json["readable"],
     timestamp: json["timestamp"],
-    gregorian: Gregorian.fromMap(json["gregorian"]),
     hijri: Hijri.fromMap(json["hijri"]),
+    gregorian: Gregorian.fromMap(json["gregorian"]),
   );
 
   Map<String, dynamic> toMap() => {
     "readable": readable,
     "timestamp": timestamp,
-    "gregorian": gregorian.toMap(),
     "hijri": hijri.toMap(),
+    "gregorian": gregorian.toMap(),
   };
 }
 
@@ -188,7 +188,7 @@ class Hijri {
   HijriMonth month;
   String year;
   Designation designation;
-  List<String> holidays;
+  List<dynamic> holidays;
 
   Hijri({
     required this.date,
@@ -209,7 +209,7 @@ class Hijri {
     month: HijriMonth.fromMap(json["month"]),
     year: json["year"],
     designation: Designation.fromMap(json["designation"]),
-    holidays: List<String>.from(json["holidays"].map((x) => x)),
+    holidays: List<dynamic>.from(json["holidays"].map((x) => x)),
   );
 
   Map<String, dynamic> toMap() => {
