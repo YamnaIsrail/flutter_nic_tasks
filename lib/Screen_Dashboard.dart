@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nic_flutter_assignments/data_Api/PrayerTimePage.dart';
 import 'package:nic_flutter_assignments/widgets/appbar.dart';
 import 'package:nic_flutter_assignments/data_hive/screen_dashboard_hive.dart';
 import 'package:nic_flutter_assignments/data_Api/screen_dashboard_api.dart';
@@ -37,7 +38,7 @@ class _ScreenDashboardState extends State<ScreenDashboard> {
                   ),
                   onTap: (){
                       Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => ApiDashboard()));
+                          MaterialPageRoute(builder: (context) => PrayerTimesPage()));
                   },),
             ),
       
