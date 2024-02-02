@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:nic_flutter_assignments/data_Api/PrayerTimePage.dart';
 import 'package:nic_flutter_assignments/widgets/appbar.dart';
 import 'package:nic_flutter_assignments/data_hive/screen_dashboard_hive.dart';
-import 'package:nic_flutter_assignments/data_Api/screen_dashboard_api.dart';
 import 'package:nic_flutter_assignments/data_sqflite/screen_dashboard_sqflite.dart';
 
 
