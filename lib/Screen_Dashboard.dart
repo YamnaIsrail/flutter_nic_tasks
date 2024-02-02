@@ -17,14 +17,16 @@ class ScreenDashboard extends StatefulWidget {
 class _ScreenDashboardState extends State<ScreenDashboard> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return
+      // SafeArea(
+      // child:
+        Scaffold(
         appBar: myappbar(title: "Assignments"),
       
         body: ListView(
           scrollDirection: Axis.vertical,
           children: [
-            SizedBox(height: 20,),
+            SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10),
               child: ListTile(
@@ -78,7 +80,7 @@ class _ScreenDashboardState extends State<ScreenDashboard> {
           ],
       
         ),
-      ),
+     // ),
     );
   }
 }
